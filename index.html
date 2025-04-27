@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>API中转站-【2025最新】ChatGPT/Claude/Deepseek API服务 | 国内直连免费API接口</title>
+    <meta name="description" content="【OpenAI API中转站】专业提供ChatGPT API、Claude API国内直连服务，支持GPT-4o/o1/o3，Claude 3.5 Sonnet等全系列模型，低延迟稳定，价格比官方低40%，注册即送免费额度。解决国内调用OpenAI API困难问题的最佳选择！">
+    <meta name="keywords" content="OpenAI API,OpenAI API中转,ChatGPT API,API中转站,大模型API,AI API平台,API接口,免费API,API key,GPT-4 API,国内直连OpenAI,Claude API,Deepseek API,便宜API">
+    <meta property="og:title" content="【2025年最新】AI大模型API中转站 | 简易API免费API服务">
+    <meta property="og:description" content="专业AI大模型API中转平台，提供ChatGPT/Claude/Deepseek免费API接口。支持GPT-4o/o1，Claude 3.5，Deepseek等全系列模型，国内直连稳定快速，注册即送免费额度！">
+    <meta property="og:url" content="https://jeniya.cn/">
+    <meta property="twitter:title" content="【2025年最新】AI大模型API中转站 | 简易API免费API服务">
+    <meta property="twitter:description" content="专业AI大模型API中转平台，提供ChatGPT/Claude/Deepseek免费API接口。支持GPT-4o/o1，Claude 3.5，Deepseek等全系列模型，国内直连稳定快速，注册即送免费额度！">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta charSet="utf-8" />
+    <meta http-equiv='content-language' content='zh-CN'>
+    <link rel="icon" href="/openai.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #9b59b6;
+            --accent-color: #1abc9c;
+            --background-color: #f8fafc;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --border-color: #e1e7ef;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --hover-shadow: rgba(0, 0, 0, 0.12);
+            --code-bg: #f1f5f9;
+            --success-color: #4CAF50;
+            --warning-color: #ff9800;
+            --gradient: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+        
+        /* 主要内容 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 80px;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: #555;
+        }
+        
+        .hero-description {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+        
+        /* 服务状态指示器 */
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            background-color: #f1f9f4;
+            border: 1px solid #d1e7dd;
+            padding: 8px 16px;
+            border-radius: 50px;
+            margin-top: 15px;
+        }
+        
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background-color: var(--success-color);
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 6px rgba(76, 175, 80, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+            }
+        }
+        
+        /* CTA按钮 */
+        .cta-button {
+            display: inline-block;
+            padding: 16px 32px;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.25);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        /* 特性部分 */
+        .section {
+            margin-bottom: 80px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        
+        .section-description {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        /* 功能卡片 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 20px var(--shadow-color);
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px var(--hover-shadow);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .feature-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        /* 模型卡片 */
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .model-card {
+            background-color: var(--card-bg);
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: 0 8px 20px var(--shadow-color);
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px var(--hover-shadow);
+        }
+        
+        .model-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--gradient);
+        }
+        
+        .model-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: rgba(52, 152, 219, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 32px;
+            color: var(--primary-color);
+        }
+        
+        .model-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .model-description {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .model-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .model-tag {
+            padding: 6px 12px;
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        /* 比较表 */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+        
+        .comparison-table th {
+            background: var(--gradient);
+            color: white;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table tr:hover td {
+            background-color: rgba(52, 152, 219, 0.05);
+        }
+        
+        /* 代码块 */
+        .code-block {
+            background-color: var(--code-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px 0;
+            overflow-x: auto;
+            position: relative;
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 12px;
+        }
+        
+        .code-language {
+            color: #555;
+            font-weight: 600;
+        }
+        
+        .copy-button {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        /* FAQ部分 */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 8px 25px var(--hover-shadow);
+        }
+        
+        .faq-question {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            color: #555;
+        }
+        
+        /* 客户评价 */
+        .testimonials {
+            padding: 50px;
+            background-color: #f1f5f9;
+            border-radius: 16px;
+            margin: 60px 0;
+            box-shadow: 0 6px 20px var(--shadow-color);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 20px var(--shadow-color);
+            border: 1px solid var(--border-color);
+        }
+        
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-info {
+            margin-left: 15px;
+        }
+        
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* 应用场景 */
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .use-case-card {
+            background-color: var(--card-bg);
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: 0 8px 20px var(--shadow-color);
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+        }
+        
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px var(--hover-shadow);
+        }
+        
+        .use-case-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        /* 统计数字 */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 18px;
+            color: #555;
+        }
+        
+        /* 价格方案 */
+        .pricing-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .pricing-card {
+            background-color: var(--card-bg);
+            border-radius: 14px;
+            padding: 40px 30px;
+            box-shadow: 0 8px 20px var(--shadow-color);
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .pricing-card.popular {
+            transform: scale(1.05);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .pricing-card.popular::before {
+            content: '最受欢迎';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--gradient);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .pricing-header {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .pricing-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .pricing-price {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .pricing-period {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .pricing-features {
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+        
+        .pricing-features ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .pricing-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .pricing-features li::before {
+            content: "✓";
+            color: var(--success-color);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .pricing-button {
+            display: inline-block;
+            padding: 12px 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .pricing-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.25);
+        }
+        
+        /* 联系部分 */
+        .contact-section {
+            background-color: var(--card-bg);
+            border-radius: 14px;
+            padding: 50px;
+            box-shadow: 0 8px 30px var(--shadow-color);
+            margin: 60px 0;
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact-description {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #555;
+            font-size: 18px;
+        }
+        
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-method {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            min-width: 200px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: white;
+            font-size: 20px;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(to right, rgba(52, 152, 219, 0.1), rgba(155, 89, 182, 0.1));
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 20px;
+            counter-increment: step-counter;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px;
+            }
+            
+            .hero-title {
+                font-size: 40px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 20px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .contact-section {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .feature-card, .model-card {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 英雄区域 -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">OpenAI API中转站</h1>
+                <h2 class="hero-subtitle">国内直连ChatGPT API服务平台</h2>
+                <p class="hero-description">一站式解决OpenAI API、Claude API、Deepseek API国内访问难题，低延迟直连，价格比官方低40%</p>
+                <a href="https://jeniya.cn/" class="cta-button">免费注册领取API额度</a>
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span>API服务状态：<strong>正常</strong> | 更新时间：<span id="current-date"></span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 增强的介绍部分 -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">OpenAI API中转服务详解</h2>
+                <p class="section-description">解决国内开发者无法直接访问ChatGPT API的困境，提供稳定可靠的API中转服务</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h3 style="margin-top:0">什么是OpenAI API中转服务？</h3>
+                <p>OpenAI API中转服务是一种专为中国开发者设计的解决方案，通过在国内部署高性能服务器，将您的API请求安全、高效地转发至OpenAI官方服务器，并将响应结果返回给您。这一过程完全透明，用户体验与直接调用官方API完全一致，但可以解决网络访问限制问题。</p>
+            </div>
+            
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(450px, 1fr)); gap:30px; margin-top:40px;">
+                <div>
+                    <h3>为什么国内开发者需要API中转服务？</h3>
+                    <ul style="padding-left:20px; margin-top:15px;">
+                        <li><strong>网络访问限制：</strong>由于众所周知的网络环境限制，国内用户无法直接访问OpenAI的服务器</li>
+                        <li><strong>高延迟问题：</strong>即使通过其他方式访问，也常常面临高延迟、不稳定的问题</li>
+                        <li><strong>支付困难：</strong>OpenAI仅支持国际信用卡付款，许多国内开发者无法完成支付</li>
+                        <li><strong>额度限制：</strong>直接使用官方API需要大量预付费用，不适合小规模测试和开发</li>
+                        <li><strong>无本地化支持：</strong>缺乏中文技术支持和文档，增加了学习和使用成本</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>我们的API中转服务如何运作？</h3>
+                    <p>简易API中转平台采用多节点部署、智能负载均衡技术，确保高可用性和低延迟：</p>
+                    <ol style="padding-left:20px; margin-top:15px;">
+                        <li>您的应用向我们的API网关发送请求</li>
+                        <li>请求经过加密处理，保护您的数据安全</li>
+                        <li>我们的高速服务器通过专线将请求转发至OpenAI</li>
+                        <li>获取OpenAI的响应后，以最快速度返回给您</li>
+                        <li>全程平均延迟低至50ms，比直连节省80%响应时间</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div style="margin-top:40px; background-color:var(--card-bg); border-radius:12px; padding:30px; box-shadow:0 8px 20px var(--shadow-color);">
+                <h3 style="text-align:center; margin-bottom:20px;">我们的技术优势</h3>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px;">
+                    <div style="text-align:center;">
+                        <div style="font-size:40px; margin-bottom:10px;">🔄</div>
+                        <h4>智能路由</h4>
+                        <p>多区域节点自动切换，确保最佳连接路径</p>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size:40px; margin-bottom:10px;">⚡</div>
+                        <h4>高速缓存</h4>
+                        <p>边缘计算加速，显著降低API响应时间</p>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size:40px; margin-bottom:10px;">🛡️</div>
+                        <h4>安全加密</h4>
+                        <p>端到端加密传输，保护数据隐私安全</p>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size:40px; margin-bottom:10px;">📊</div>
+                        <h4>实时监控</h4>
+                        <p>7x24小时系统监控，确保服务稳定运行</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 统计数据 -->
+        <section class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">50ms</div>
+                <div class="stat-label">平均响应延迟</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99.99%</div>
+                <div class="stat-label">服务可用性</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10,000+</div>
+                <div class="stat-label">开发者用户</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1亿+</div>
+                <div class="stat-label">每日API调用</div>
+            </div>
+        </section>
+
+        <!-- 特性部分 -->
+        <section class="section" id="features">
+            <div class="section-header">
+                <h2 class="section-title">为什么选择我们的API中转服务？</h2>
+                <p class="section-description">简易API为您提供稳定可靠的API中转服务，帮助您轻松接入AI大模型</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">国内直连稳定访问</h3>
+                    <p>多节点智能调度，平均延迟低至50ms，比直接访问官方快10倍，服务可用性99.99%，适合企业生产环境使用</p>
+                    <p style="margin-top:15px;">采用国内优质BGP网络，无论您的用户在电信、联通、移动等任何网络环境下，都能获得最佳访问体验</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">更低廉的价格</h3>
+                    <p>价格比官方渠道低40%，支持人民币付款，无需海外信用卡，更经济实惠</p>
+                    <p style="margin-top:15px;">提供灵活的充值方案，支持支付宝、微信支付、银行转账等多种支付方式，满足个人和企业不同需求</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">完全兼容官方API</h3>
+                    <p>与官方API完全兼容，仅需修改API域名即可集成，无需更改代码结构，零
