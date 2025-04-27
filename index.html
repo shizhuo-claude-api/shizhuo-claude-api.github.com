@@ -59,10 +59,7 @@
         
         /* 英雄区域 */
         .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
+            text-align: center;
             margin-bottom: 80px;
             background-color: var(--card-bg);
             border-radius: 20px;
@@ -83,7 +80,8 @@
         }
         
         .hero-content {
-            flex: 1;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .hero-title {
@@ -107,19 +105,6 @@
             font-size: 18px;
             margin-bottom: 30px;
             color: #666;
-        }
-        
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px var(--shadow-color);
         }
         
         /* 服务状态指示器 */
@@ -774,8 +759,6 @@
         /* 响应式设计 */
         @media (max-width: 1024px) {
             .hero {
-                flex-direction: column;
-                text-align: center;
                 padding: 40px;
             }
             
@@ -960,4 +943,24 @@
                 <div class="feature-card">
                     <div class="feature-icon">🔄</div>
                     <h3 class="feature-title">完全兼容官方API</h3>
-                    <p>与官方API完全兼容，仅需修改API域名即可集成，无需更改代码结构，零
+                    <p>与官方API完全兼容，仅需修改API域名即可集成，无需更改代码结构，零学习成本</p>
+                    <p style="margin-top:15px;">支持所有OpenAI API功能，包括聊天补全、图像生成、语音转文字、文本嵌入等，和官方体验完全一致</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">数据安全保障</h3>
+                    <p>采用端到端加密技术，仅作为请求中转，不存储用户数据，符合ISO27001信息安全标准</p>
+                    <p style="margin-top:15px;">支持企业级安全需求，提供专属IP白名单、请求签名验证等多重安全保障措施</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">即刻接入</h3>
+                    <p>注册即送100元免费额度，5分钟内即可完成API集成，快速开启AI应用开发</p>
+                </div>
+            </div>
+         </section>
+    </div>
+</body>
+</html>
